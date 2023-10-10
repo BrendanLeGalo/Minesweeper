@@ -1,0 +1,18 @@
+
+.matrix{ 
+    border-collapse: collapse;
+}
+tr, td { padding: 0; }
+
+.btn{
+    background-color: #c4dce0;
+    font-size: 12px;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 4px;
+    border-left-color: #daf4f5;
+    border-top-color: #daf4f5;
+    border-right-color: #80a3a2;
+    border-bottom-color: #80a3a2;
+}
