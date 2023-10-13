@@ -5,14 +5,159 @@
 tr, td { padding: 0; }
 
 .btn{
-    background-color: #c4dce0;
+    background-color: #B9B9B9;
+    color: transparent;
     font-size: 12px;
     height: 3rem;
     width: 3rem;
     margin:0;
     border-width: 4px;
-    border-left-color: #daf4f5;
-    border-top-color: #daf4f5;
-    border-right-color: #80a3a2;
-    border-bottom-color: #80a3a2;
+    border-left-color: #FDFCFD;
+    border-top-color: #FDFCFD;
+    border-right-color: #757575;
+    border-bottom-color: #757575;
+}
+
+.btnMineHit {
+    background-color: #c4dce0;
+    background: url("images/mine-red.PNG");
+    background-size: cover;
+    color: #000000;
+    color: transparent;
+    font-size: 12px;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btnMine {
+    background-color: #c4dce0;
+    background: url("images/mine-grey.PNG");
+    background-size: cover;
+    color: #000000;
+    font-size: 12px;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn0 {
+    background-color: #c4dce0;
+    color: transparent;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn1 {
+    background-color: #c4dce0;
+    color: blue;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn2 {
+    background-color: #c4dce0;
+    color: green;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn3 {
+    background-color: #c4dce0;
+    color: red;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn4 {
+    background-color: #c4dce0;
+    color: darkblue;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn5 {
+    background-color: #c4dce0;
+    color: brown;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn6 {
+    background-color: #c4dce0;
+    color: #008b8b;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn7 {
+    background-color: #c4dce0;
+    color: black;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
+}
+
+.btn8 {
+    background-color: #c4dce0;
+    color: grey;
+    font-size: 2rem;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 0.5px;
+    border-color: #757575;
 }
