@@ -2,10 +2,27 @@
 .matrix{ 
     border-collapse: collapse;
 }
+
 tr, td { padding: 0; }
 
 .btn{
     background-color: #B9B9B9;
+    color: transparent;
+    font-size: 12px;
+    height: 3rem;
+    width: 3rem;
+    margin:0;
+    border-width: 4px;
+    border-left-color: #FDFCFD;
+    border-top-color: #FDFCFD;
+    border-right-color: #757575;
+    border-bottom-color: #757575;
+}
+
+.btnFlag {
+    background-color: #B9B9B9;
+    background: url("images/flag.png");
+    background-size: cover;
     color: transparent;
     font-size: 12px;
     height: 3rem;
@@ -37,6 +54,7 @@ tr, td { padding: 0; }
     background: url("images/mine-grey.PNG");
     background-size: cover;
     color: #000000;
+    color: transparent;
     font-size: 12px;
     height: 3rem;
     width: 3rem;

@@ -9,17 +9,6 @@ var b60=0; var b61=0; var b62=0; var b63=0; var b64=0; var b65=0; var b66=0; var
 var b70=0; var b71=0; var b72=0; var b73=0; var b74=0; var b75=0; var b76=0; var b77=0; var b78=0; var b79=0;
 var b80=0; var b81=0; var b82=0; var b83=0; var b84=0; var b85=0; var b86=0; var b87=0; var b88=0; var b89=0;
 var b90=0; var b91=0; var b92=0; var b93=0; var b94=0; var b95=0; var b96=0; var b97=0; var b98=0; var b99=0;
-//variable initialisation for the statu of every button (number of mines around or X if there is a mine)
-// var s00; var s01; var s02; var s03; var s04; var s05; var s06; var s07; var s08; var s09; 
-// var s10; var s11; var s12; var s13; var s14; var s15; var s16; var s17; var s18; var s19;
-// var s20; var s21; var s22; var s23; var s24; var s25; var s26; var s27; var s28; var s29;
-// var s30; var s31; var s32; var s33; var s34; var s35; var s36; var s37; var s38; var s39;
-// var s40; var s41; var s42; var s43; var s44; var s45; var s46; var s47; var s48; var s49;
-// var s50; var s51; var s52; var s53; var s54; var s55; var s56; var s57; var s58; var s59;
-// var s60; var s61; var s62; var s63; var s64; var s65; var s66; var s67; var s68; var s69;
-// var s70; var s71; var s72; var s73; var s74; var s75; var s76; var s77; var s78; var s79;
-// var s80; var s81; var s82; var s83; var s84; var s85; var s86; var s87; var s88; var s89;
-// var s90; var s91; var s92; var s93; var s94; var s95; var s96; var s97; var s98; var s99;
 
 /****************** Determination of the mines spots *********************/
 
@@ -46,7 +35,7 @@ function placeMine (numberOfMines) {
     return locations;// what's left from the different locations - mine free spots
     return minesLocation;//mine location that has been selected
 }
-placeMine(10);
+placeMine(12);
 
 console.log(locations); 
 console.log(minesLocation); 
@@ -171,7 +160,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
             if (idA !== "n/a"){ //if idA is not out of the field
                 coverA=(document.querySelector("."+idA).classList.contains("btn"));//show if idA is covered (if we can see its statut 0, 1, 2 ...)
                 // it retrurs true if it is cover or false if it is uncover, because the class .btn is removed and replace by the number ex: btn2 for the ones that are already uncovered
-                console.log(coverA);
+                // console.log(coverA);
                 if (coverA==true){ //if it is cover
                     document.querySelector("."+idA).classList.remove("btn");
                     document.querySelector("."+idA).classList.add("btn"+(document.querySelector("."+idA).textContent)); //uncover it and reveal the statu 0,1,2 ...
@@ -183,7 +172,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idB !== "n/a"){ 
                 coverB=(document.querySelector("."+idB).classList.contains("btn"));
-                console.log(coverB);
+                // console.log(coverB);
                 if (coverB==true){
                     document.querySelector("."+idB).classList.remove("btn");
                     document.querySelector("."+idB).classList.add("btn"+(document.querySelector("."+idB).textContent));
@@ -195,7 +184,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idC !== "n/a"){ 
                 coverC=(document.querySelector("."+idC).classList.contains("btn"));
-                console.log(coverC);
+                // console.log(coverC);
                 if (coverC==true){
                     document.querySelector("."+idC).classList.remove("btn");
                     document.querySelector("."+idC).classList.add("btn"+(document.querySelector("."+idC).textContent));
@@ -207,7 +196,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idD !== "n/a"){ 
                 coverD=(document.querySelector("."+idD).classList.contains("btn"));
-                console.log(coverD);
+                // console.log(coverD);
                 if (coverD==true){
                     document.querySelector("."+idD).classList.remove("btn");
                     document.querySelector("."+idD).classList.add("btn"+(document.querySelector("."+idD).textContent));
@@ -219,7 +208,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idE !== "n/a"){ 
                 coverE=(document.querySelector("."+idE).classList.contains("btn"));
-                console.log(coverE);
+                // console.log(coverE);
                 if (coverE==true){
                     document.querySelector("."+idE).classList.remove("btn");
                     document.querySelector("."+idE).classList.add("btn"+(document.querySelector("."+idE).textContent));
@@ -231,7 +220,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idF !== "n/a"){ 
                 coverF=(document.querySelector("."+idF).classList.contains("btn"));
-                console.log(coverF);
+                // console.log(coverF);
                 if (coverF==true){
                     document.querySelector("."+idF).classList.remove("btn");
                     document.querySelector("."+idF).classList.add("btn"+(document.querySelector("."+idF).textContent));
@@ -243,7 +232,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idG !== "n/a"){ 
                 coverG=(document.querySelector("."+idG).classList.contains("btn"));
-                console.log(coverG);
+                // console.log(coverG);
                 if (coverG==true){
                     document.querySelector("."+idG).classList.remove("btn");
                     document.querySelector("."+idG).classList.add("btn"+(document.querySelector("."+idG).textContent));
@@ -255,7 +244,7 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
             if (idH !== "n/a"){ 
                 coverH=(document.querySelector("."+idH).classList.contains("btn"));
-                console.log(coverH);
+                // console.log(coverH);
                 if (coverH==true){
                     document.querySelector("."+idH).classList.remove("btn");
                     document.querySelector("."+idH).classList.add("btn"+(document.querySelector("."+idH).textContent));
@@ -269,106 +258,124 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
     }
 
 
-    /***** the "real" click handler ******/
+    /******** the "real" click handler *********/
 
-for (i=0; i<100; i++){
+    var numberOfClicks=0; //variable that takes the number of user click to know if we click on a mine on the first click
+
+    var theBadLuckClick="";
+    var hadBeenRrefreshed=0; 
+   
+
+for (i=0; i<100; i++){ 
     document.querySelectorAll("button")[i].addEventListener("click",function(){
-        if ((this.textContent)=="X") { //si clique =x alors
-            for(i=0; i<100; i++) {
-                if ((document.querySelectorAll("button")[i].textContent)=="X"){
-                    document.querySelectorAll("button")[i].classList.remove("btn");
-                    document.querySelectorAll("button")[i].classList.add("btnMine");
+        numberOfClicks++;
+    /* the "if" below with the small section at the bottom of the EventListner is aiming to prevent a first user click on a mine.
+    If the user click on a first click on a mine we are calling that click "theBadLuckClick" we then take the Id of that bad luck click ex:b112
+    and we store it on the local storage so when the page will be refreshed we will still know that it was that button that was theBadLuckClick
+    we are also gonna mention to the local storage that the page has been refreshed so once the page will be refreshed we will also remember that we refreshed it.
+    (see the rest of the explanation below the EventListner)
+    */
+        if ((numberOfClicks==1)&&(this.textContent)=="X") {
+            theBadLuckClick=this.classList[1];// ex: b12
+            localStorage.setItem("storeBadLuckClick", theBadLuckClick); //store b12 in the local storage
+            hadBeenRrefreshed=1;
+            localStorage.setItem("storeHadBeedRefreshed", hadBeenRrefreshed); //mentioned that the page has been refreshed to the local storage
+            location.reload(); //reload or refresh the page
+        }
+        else{ // if we didn't have a bad luck click or if we solve it, we are treating the click normaly. 
+            if ((this.textContent)=="X") { //if click on a mine (click =x)
+                for(i=0; i<100; i++) {     // for all the button that contain a mines reveal all the mines 
+                    if ((document.querySelectorAll("button")[i].textContent)=="X"){
+                        document.querySelectorAll("button")[i].classList.remove("btn");
+                        document.querySelectorAll("button")[i].classList.add("btnMine");
+                    }
+                    document.querySelectorAll("button")[i].disabled=true; // once a mine has been place we disable all the click on the button
                 }
-            }
-            this.classList.remove("btnMine");
-            this.classList.add("btnMineHit");
-        } 
-        else if ((this.textContent)==0) {
-            this.classList.remove("btn");
-            this.classList.add("btn0");
-            idPivot=this.classList[0]; // resort la class b12 par exemple
+                this.classList.remove("btnMine");
+                this.classList.add("btnMineHit");
+            } 
+            else if ((this.textContent)==0) { //if click on 0
+                this.classList.remove("btn");
+                this.classList.add("btn0");
+                idPivot=this.classList[0]; // take out for example the class b12
 
-            nextIdPivot=expend(idPivot); //  apply the expend function to the main pivot
-            // it will gave us as an outup the other pivot (nextIdPivot) (the surounded buttons that have the staut 0 and that are not uncover yet)
-            
-                for (var i=0; i<nextIdPivot.length; i++){ //loop that apply the expend function to all the new pivot that it founds
-                    nextIdPivot=expend(nextIdPivot[i]);
-                    console.log(nextIdPivot);
-                }
+                nextIdPivot=expend(idPivot); //  apply the expend function to the main pivot
+                // it will gave us as an output the other pivot (nextIdPivot) (the surounded buttons that have the staut 0 and that are not uncover yet)
+                
+                    for (var i=0; i<nextIdPivot.length; i++){ //loop that apply the expend function to all the new pivot that it founds
+                        nextIdPivot=expend(nextIdPivot[i]);
+                        // console.log(nextIdPivot);
+                    }
+            }
+            else if ((this.textContent)==1) {  //if click on 1...
+                this.classList.remove("btn");
+                this.classList.add("btn1");
+            }
+            else if ((this.textContent)==2) {
+                this.classList.remove("btn");
+                this.classList.add("btn2");
+            }
+            else if ((this.textContent)==3) {
+                this.classList.remove("btn");
+                this.classList.add("btn3");
+            }
+            else if ((this.textContent)==4) {
+                this.classList.remove("btn");
+                this.classList.add("btn4");
+            }
+            else if ((this.textContent)==5) {
+                this.classList.remove("btn");
+                this.classList.add("btn5");
+            }
+            else if ((this.textContent)==6) {
+                this.classList.remove("btn");
+                this.classList.add("btn6");
+            }
+            else if ((this.textContent)==7) {
+                this.classList.remove("btn");
+                this.classList.add("btn7");
+            }
+            else if ((this.textContent)==8) {
+                this.classList.remove("btn");
+                this.classList.add("btn8");
+            } 
         }
-        else if ((this.textContent)==1) {
-            this.classList.remove("btn");
-            this.classList.add("btn1");
-        }
-        else if ((this.textContent)==2) {
-            this.classList.remove("btn");
-            this.classList.add("btn2");
-        }
-        else if ((this.textContent)==3) {
-            this.classList.remove("btn");
-            this.classList.add("btn3");
-        }
-        else if ((this.textContent)==4) {
-            this.classList.remove("btn");
-            this.classList.add("btn4");
-        }
-        else if ((this.textContent)==5) {
-            this.classList.remove("btn");
-            this.classList.add("btn5");
-        }
-        else if ((this.textContent)==6) {
-            this.classList.remove("btn");
-            this.classList.add("btn6");
-        }
-        else if ((this.textContent)==7) {
-            this.classList.remove("btn");
-            this.classList.add("btn7");
-        }
-        else if ((this.textContent)==8) {
-            this.classList.remove("btn");
-            this.classList.add("btn8");
-        } 
     })
 }
 
+/* 
+take out the value of the variable below out from the local storage
+If the page has been previously refreshed we set back the refresh statu to 0 and it will automaticaly click on the same button than previously 
+(the b12 to keep the same example) with the EventListner above and the whole process will restart (it will check if it is again a bad luck click)
+*/
+var hadBeenRrefreshed=localStorage.getItem("storeHadBeedRefreshed");
+var theBadLuckClick=localStorage.getItem("storeBadLuckClick");
+console.log(hadBeenRrefreshed);
+console.log(theBadLuckClick);
+if (hadBeenRrefreshed==1){
+    console.log(theBadLuckClick);
+    hadBeenRrefreshed=0;
+    localStorage.setItem("storeHadBeedRefreshed", hadBeenRrefreshed);
+    document.querySelector("."+theBadLuckClick).click();
+}
 
 
+        /***** Handle the flag (with the left click) ******/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// console.log(numMines);
-// console.log("s00="+s00);
-// console.log("s01="+s01);
-// console.log("s02="+s02);
-// console.log("s03="+s03);
-// console.log("s04="+s04);
-// console.log("s05="+s05);
-// console.log("s06="+s06);
-// console.log("s07="+s07);
-// console.log("s08="+s08);
-// console.log("s09="+s09);
-// console.log("s10="+s10);
-// console.log("s11="+s11);
-// console.log("s12="+s12);
-// console.log("s13="+s13);
-// console.log("s14="+s14);
-// console.log("s15="+s15);
-// console.log("s16="+s16);
-// console.log("s17="+s17);
-// console.log("s18="+s18);
-// console.log("s19="+s19);
-
+for (i=0; i<100; i++){
+        document.querySelectorAll("button")[i].addEventListener("contextmenu", function(event){ // left click 
+            event.preventDefault(event); // remove the context menu display
+            if ((this.classList.contains("btn"))==true){ //if the button is still cover and have not being clicked yet (if it still contains the class "btn")
+                this.classList.toggle("btnFlag"); //toogle the class btnFlag
+                if ((this.classList.contains("btnFlag"))==true){ //if the click event contain the class btnFlag it means that there are a flag
+                    this.disabled=true; // so we disable the click so we can't click on the button when there is a flag
+                }
+                else {
+                    this.disabled=false; //if there is no flag we can click on the button
+                }
+            }
+        });
+}   
 
 
 
