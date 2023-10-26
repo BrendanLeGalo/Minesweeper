@@ -51,8 +51,11 @@ function placeMine (numberOfMines) {
                     localStorage.setItem("storeHowManyMines",howManyMines); // store that number "25" in the local storage
                     location.reload(); //reload the page with the new number  
                 })
-                howManyMines=localStorage.getItem("storeHowManyMines");// get the previous stored number "25" 
-
+                if((localStorage.getItem("storeHowManyMines"))==null){
+                    howManyMines=12;
+                }else{
+                    howManyMines=localStorage.getItem("storeHowManyMines");// get the previous stored number "25" 
+                }
                 //add an EventListner to the input(type: number) and listen to the Enter key press, so don't have to press the validate button, we can just press enter
                 document.getElementById("userNumMines").addEventListener("keypress",function(event){ 
                     if (event.key === "Enter") {
