@@ -1,3 +1,149 @@
+body{
+    background-color: #F9F3CC;
+}
+
+h1{
+    font-family: 'Lemondrop', Arial, Helvetica,  sans-serif;
+    text-align: center;
+    color: #4B6587;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+h2{
+    font-family: 'Comodo', sans-serif;
+    text-align: center;
+    color: #8EACCD;
+    margin-top: 0.5rem;
+}
+
+#minesweeperGame{
+    width:fit-content;
+    text-align: center;
+    margin-right:auto;
+    margin-left: auto;
+}
+h3{
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+    background-color: #3F2E3E;
+    border-style: solid;
+    border-width: 3px;
+    border-color: red;
+    width: 65px;
+    font-family: 'Digital-7 Mono', sans-serif;
+    letter-spacing: 0.05rem;
+    color: red;
+}
+#minesweeperCommand{
+    background-color: #D2E0FB;
+    text-align: center;
+    height: auto;
+}
+    #flagCounter{
+        display: inline-block;
+        text-align: center;
+    }
+        #flagCount{
+            display: inline-block;
+            vertical-align: middle;
+            height: 2rem;
+            margin-right: 0.4rem;
+        }
+    .smileyBtnSmile{
+        background-color: #3F2E3E;
+        height: fit-content;
+        width: fit-content;
+        margin: auto 2rem auto 2rem;
+        border-style: solid;
+        border-width: 3px;
+        border-color: red;
+        border-radius: 0px;
+    }
+    .smileyBtnMine{
+        background-color: red;
+        height: fit-content;
+        width: fit-content;
+        margin: auto 2rem auto 2rem;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #3F2E3E;
+        border-radius: 0px;
+    }
+    .smileyBtn:hover{
+        transform: scale(1.08);
+    }
+        #smiley{
+            display: inline-block;
+            vertical-align: middle;
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+    #timeCounter{
+        display: inline-block;
+        text-align: center;
+    }
+        #clockCount{
+            display: inline-block;
+            vertical-align: middle;
+            height: 2rem;
+            margin-left: 0.4rem;
+        }
+
+#minesweeperCommandBottom{
+    padding-top: 15px;
+    background-color: #D2E0FB;
+    text-align: center;
+    height: auto;
+}
+    .counterMines{
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 10px 5px 10px 5px;      
+        height: 25px;
+        width: 35px;
+
+        background-color: transparent;
+        background-image: url('images/bomb-shade-screen.png');
+        background-size: cover;
+
+        text-align: center;
+        font-family: 'Digital-7', sans-serif;
+        font-weight:550;
+        font-size: 25px;
+        letter-spacing: 0.05rem;
+        color: red;
+    }
+
+    .pform{
+        display: inline-block;
+        margin-top: 12px;
+        font-family: 'Comodo', sans-serif;
+        font-size: 11px;
+        font-weight: bold;
+        color: #4B6587;
+    }
+    #userNumMines{
+        background-color:#c4dce0;
+        margin: 0.5rem 0 0.5rem 0.5rem;
+        border-radius: 5px;
+        font-size: 14px;
+        padding: 3px;
+    }
+    #validateNumMines{
+        background-color: #8EACCD;
+        font-size: 14px;
+        padding: 3px;
+        margin: 0.5rem 0 0.5rem 0;
+        border-radius: 5px;
+    }
+    #validateNumMines:hover{
+        transform: scale(1.08);
+    }
+
+
 
 .matrix{ 
     border-collapse: collapse;
@@ -15,8 +161,8 @@ tr, td { padding: 0; }
     border-width: 4px;
     border-left-color: #FDFCFD;
     border-top-color: #FDFCFD;
-    border-right-color: #757575;
-    border-bottom-color: #757575;
+    border-right-color: #9DB2BF;
+    border-bottom-color: #9DB2BF;
 }
 
 .btnFlag {
@@ -31,8 +177,8 @@ tr, td { padding: 0; }
     border-width: 4px;
     border-left-color: #FDFCFD;
     border-top-color: #FDFCFD;
-    border-right-color: #757575;
-    border-bottom-color: #757575;
+    border-right-color: #9DB2BF;
+    border-bottom-color: #9DB2BF;
 }
 
 .btnMineHit {
@@ -46,7 +192,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btnMine {
@@ -60,7 +206,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn0 {
@@ -73,7 +219,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn1 {
@@ -86,7 +232,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn2 {
@@ -99,7 +245,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn3 {
@@ -112,7 +258,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn4 {
@@ -125,7 +271,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn5 {
@@ -138,7 +284,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn6 {
@@ -151,7 +297,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn7 {
@@ -164,7 +310,7 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
 
 .btn8 {
@@ -177,5 +323,6 @@ tr, td { padding: 0; }
     width: 3rem;
     margin:0;
     border-width: 0.5px;
-    border-color: #757575;
+    border-color: #9DB2BF;
 }
+

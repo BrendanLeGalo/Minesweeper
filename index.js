@@ -1,4 +1,4 @@
-// Variable initialisation for every location or button (it is going to be equal to 1 if a mine is assigne the location)
+// Variable initialization for every location or button (it is going to be equal to 1 if a mine is assigned the location)
 var b00=0; var b01=0; var b02=0; var b03=0; var b04=0; var b05=0; var b06=0; var b07=0; var b08=0; var b09=0;
 var b10=0; var b11=0; var b12=0; var b13=0; var b14=0; var b15=0; var b16=0; var b17=0; var b18=0; var b19=0;
 var b20=0; var b21=0; var b22=0; var b23=0; var b24=0; var b25=0; var b26=0; var b27=0; var b28=0; var b29=0;
@@ -10,15 +10,15 @@ var b70=0; var b71=0; var b72=0; var b73=0; var b74=0; var b75=0; var b76=0; var
 var b80=0; var b81=0; var b82=0; var b83=0; var b84=0; var b85=0; var b86=0; var b87=0; var b88=0; var b89=0;
 var b90=0; var b91=0; var b92=0; var b93=0; var b94=0; var b95=0; var b96=0; var b97=0; var b98=0; var b99=0;
 
-/****************** Determination of the mines spots *********************/
+/****************** Determination of the mines' spots *********************/
 
-/* that section is aiming to determiate where the mines should be placed on a separated array, they are not assigned to their button yet
+/* that section is aiming to determinate where the mines should be placed on a separated array, they are not assigned to their button yet
 (ex: var b12 will still be =0)
 The determination of the mines spot are done randomly thanks to the function "placeMine(numberOfMines)"-->(we can chose the number of mines we want)
 It picks randomly a mine spot among all the available spot (like if we were picking a card from the deck) then it removed the taken spot from the
 available spot for the next selection  */
 
-var locations = []; // var that will contain all the possible mine location (in our situation it will be an array with every numbers from 0 to 99)
+var locations = []; // var that will contain all the possible mine location (in our situation it will be an array with every number from 0 to 99)
 var minesLocation = []; // var that will contain the mine location that has been randomly picked.
 
 function placeMine (numberOfMines) { 
@@ -29,22 +29,51 @@ function placeMine (numberOfMines) {
     //Loop that pick one random location from the available location array. start again until we have the right number of mines.
     for (var i=0; i<numberOfMines; i++){
         var n = Math.floor(Math.random()*locations.length); // n is the position in the array (not the location itself)
-        minesLocation.push(locations.splice(n,1));//it remove the taken location from the "location" array so that we can't pick two time the same locaation
+        minesLocation.push(locations.splice(n,1));//it remove the taken location from the "location" array so that we can't pick two time the same location
     } 
 
     return locations;// what's left from the different locations - mine free spots
     return minesLocation;//mine location that has been selected
 }
-placeMine(12);
+
+            /***The user can change the number of mines***************************************************************************/
+
+                var howManyMines=12; //default value
+
+                document.getElementById("validateNumMines").addEventListener("click",function(){ //add a EventListner to the "validate" button
+                        /* protection with the if*/
+                        if((document.getElementById("userNumMines").value) > 99 || (document.getElementById("userNumMines").value) <=0){ 
+                        //to not set the number of mine to 100 or more otherwise the code will run indefinitely we also don't want a negative number or a 0
+                        howManyMines=12; //back to the default number
+                        }else{
+                            howManyMines = document.getElementById("userNumMines").value; // get the number set by the user in the input section ex:25
+                        }
+                    localStorage.setItem("storeHowManyMines",howManyMines); // store that number "25" in the local storage
+                    location.reload(); //reload the page with the new number  
+                })
+                howManyMines=localStorage.getItem("storeHowManyMines");// get the previous stored number "25" 
+
+                //add an EventListner to the input(type: number) and listen to the Enter key press, so don't have to press the validate button, we can just press enter
+                document.getElementById("userNumMines").addEventListener("keypress",function(event){ 
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        document.getElementById("validateNumMines").click();
+                    }
+                })
+
+            /***The user can change the number of mines - end ***************************************************************************/
+
+placeMine(howManyMines); //take the number of mines wanted by the user the default is 12
 
 console.log(locations); 
 console.log(minesLocation); 
 
-/************** Assignement of the mines to their button *****************/
+/************** Assignment of the mines to their button *****************/
 
 var numMines=minesLocation.length;
+    document.querySelector(".counterMines").textContent=numMines;
 var singleMineLocation;
-for (var i=0; i<numMines; i++){ // the loop assigne the value 1 to the variable that has recieve a bomb (ex: if the var b02 has recieve a bomb b02=1)
+for (var i=0; i<numMines; i++){ // the loop assign the value 1 to the variable that has receive a bomb (ex: if the var b02 has receive a bomb b02=1)
     singleMineLocation =minesLocation.shift().toString();
     if (singleMineLocation<10) {
         eval("b0"+singleMineLocation+"="+"1");
@@ -129,7 +158,7 @@ for (var i=0; i<100; i++){ // to display where are the mine on the button
             // eval("s" +i+"="+bomba);
         }
     }
-document.querySelectorAll("button")[i].textContent=bomba; // change the value of the button on HTML (the value is made invisible with css and we change the class to make it visible after a click)
+document.querySelectorAll(".btnMS")[i].textContent=bomba; // change the value of the button on HTML (the value is made invisible with css and we change the class to make it visible after a click)
 }
 
 /********************** handle the clicks *******************/
@@ -158,8 +187,8 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
         idA=identityA(l,c); idB=identityB(l,c); idC=identityC(l,c); idD=identityD(l,c); idE=identityE(l,c); dF=identityF(l,c); idG=identityG(l,c); idH=identityH(l,c); 
 
             if (idA !== "n/a"){ //if idA is not out of the field
-                coverA=(document.querySelector("."+idA).classList.contains("btn"));//show if idA is covered (if we can see its statut 0, 1, 2 ...)
-                // it retrurs true if it is cover or false if it is uncover, because the class .btn is removed and replace by the number ex: btn2 for the ones that are already uncovered
+                coverA=(document.querySelector("."+idA).classList.contains("btn"));//show if idA is covered (if we can see its status 0, 1, 2 ...)
+                // it retrurs true if it is cover, or false if it is uncover, because the class .btn is removed and replace by the number ex: btn2 for the ones that are already uncovered
                 // console.log(coverA);
                 if (coverA==true){ //if it is cover
                     document.querySelector("."+idA).classList.remove("btn");
@@ -260,20 +289,24 @@ document.querySelectorAll("button")[i].textContent=bomba; // change the value of
 
     /******** the "real" click handler *********/
 
-    var numberOfClicks=0; //variable that takes the number of user click to know if we click on a mine on the first click
+    var NbrAvailableButton;
+    var youWon=0;
+    var youLost=0;
+    var numberOfClicks=0; //variable that takes the number of users click to know if we click on a mine on the first click
 
     var theBadLuckClick="";
     var hadBeenRrefreshed=0; 
    
 
-for (i=0; i<100; i++){ 
-    document.querySelectorAll("button")[i].addEventListener("click",function(){
+for (var i=0; i<100; i++){ 
+    document.querySelectorAll(".btnMS")[i].addEventListener("click",function(){
+        NbrAvailableButton=0;
         numberOfClicks++;
     /* the "if" below with the small section at the bottom of the EventListner is aiming to prevent a first user click on a mine.
     If the user click on a first click on a mine we are calling that click "theBadLuckClick" we then take the Id of that bad luck click ex:b112
-    and we store it on the local storage so when the page will be refreshed we will still know that it was that button that was theBadLuckClick
-    we are also gonna mention to the local storage that the page has been refreshed so once the page will be refreshed we will also remember that we refreshed it.
-    (see the rest of the explanation below the EventListner)
+    and we store it on the local storage so when the page will be refreshed, we will still know that it was that button that was theBadLuckClick
+    we are also going to mention to the local storage that the page has been refreshed, so once the page will be refreshed, we will also remember that we refreshed it.
+    (see the rest of the explanation below the EventListner)    
     */
         if ((numberOfClicks==1)&&(this.textContent)=="X") {
             theBadLuckClick=this.classList[1];// ex: b12
@@ -282,17 +315,24 @@ for (i=0; i<100; i++){
             localStorage.setItem("storeHadBeedRefreshed", hadBeenRrefreshed); //mentioned that the page has been refreshed to the local storage
             location.reload(); //reload or refresh the page
         }
-        else{ // if we didn't have a bad luck click or if we solve it, we are treating the click normaly. 
+        else{ // if we didn't have a bad luck click or if we solve it, we are treating the click normally. 
             if ((this.textContent)=="X") { //if click on a mine (click =x)
                 for(i=0; i<100; i++) {     // for all the button that contain a mines reveal all the mines 
-                    if ((document.querySelectorAll("button")[i].textContent)=="X"){
-                        document.querySelectorAll("button")[i].classList.remove("btn");
-                        document.querySelectorAll("button")[i].classList.add("btnMine");
+                    if ((document.querySelectorAll(".btnMS")[i].textContent)=="X"){
+                        document.querySelectorAll(".btnMS")[i].classList.remove("btn");
+                        document.querySelectorAll(".btnMS")[i].classList.add("btnMine");
                     }
-                    document.querySelectorAll("button")[i].disabled=true; // once a mine has been place we disable all the click on the button
+                    document.querySelectorAll(".btnMS")[i].disabled=true; // once a mine has been place we disable all the click on the button
                 }
                 this.classList.remove("btnMine");
                 this.classList.add("btnMineHit");
+                youLost=1;
+                document.getElementById("smiley").src="images/Bomb-angry.png";
+                document.querySelector(".smileyBtn").classList.remove("smileyBtnSmile");
+                document.querySelector(".smileyBtn").classList.add("smileyBtnMine");
+                // setTimeout(function(){
+                //     alert("BOOOOMMM !!! tu as perdu !");
+                // }, 800);
             } 
             else if ((this.textContent)==0) { //if click on 0
                 this.classList.remove("btn");
@@ -300,7 +340,7 @@ for (i=0; i<100; i++){
                 idPivot=this.classList[0]; // take out for example the class b12
 
                 nextIdPivot=expend(idPivot); //  apply the expend function to the main pivot
-                // it will gave us as an output the other pivot (nextIdPivot) (the surounded buttons that have the staut 0 and that are not uncover yet)
+                // it will gave us as an output the other pivot (nextIdPivot) (the surounded buttons that have the staus 0 and that are not uncover yet)
                 
                     for (var i=0; i<nextIdPivot.length; i++){ //loop that apply the expend function to all the new pivot that it founds
                         nextIdPivot=expend(nextIdPivot[i]);
@@ -340,42 +380,107 @@ for (i=0; i<100; i++){
                 this.classList.add("btn8");
             } 
         }
+        /* check if we wone ! */
+            for(var i=0; i<100; i++) {
+                if ((document.querySelectorAll(".btnMS")[i].classList.contains("btn"))==true){
+                    NbrAvailableButton++;
+                    console.log(NbrAvailableButton);
+                }
+            }
+            if (NbrAvailableButton===numMines){ //if we won:
+                youWon=1;
+                for(var i=0; i<100; i++) {    
+                    if ((document.querySelectorAll(".btnMS")[i].textContent)=="X"){ // if the button contain a mine 
+                        document.querySelectorAll(".btnMS")[i].classList.add("btnFlag");
+                    }
+                    document.querySelectorAll(".btnMS")[i].disabled=true; // We won, so we disable all the button so we can't keep playing
+                }
+                document.getElementById("smiley").src="images/smiley-sunglasses.png";
+                // setTimeout(function(){
+                //     alert("Yeahhh ! bravo tu as gangé !");
+                // }, 400);
+            }
+
+        /******Stopwatch *******/
+        var centiSecond=0;
+        var centiSec=0;
+        var min=0;
+        var sec=0;
+        var timeSpend=0;
+        if (numberOfClicks==1){
+            var stopwatch=setInterval(function(){
+                centiSecond++;
+                min=Math.floor(centiSecond/600);
+                sec=Math.floor((centiSecond/10)-(60*min));
+                centiSec=Math.floor(centiSecond-(600*min)-(10*sec));
+                    if (min<10){min="0"+min;}else{min;}
+                    if (sec<10){sec="0"+sec;}else{sec;}
+                timeSpend=min+":"+sec+"."+centiSec;
+                    if (centiSecond>=36000){timeSpend="😴"}
+                document.querySelector(".chrono").textContent=timeSpend;
+
+                if (youWon===1){clearInterval(stopwatch);} 
+                if (youLost===1){clearInterval(stopwatch);}
+            }, 100);
+        }
+
+
     })
 }
-
 /* 
 take out the value of the variable below out from the local storage
-If the page has been previously refreshed we set back the refresh statu to 0 and it will automaticaly click on the same button than previously 
+If the page has been previously refreshed, we set back the refresh status to 0 and it will automatically click on the same button than previously 
 (the b12 to keep the same example) with the EventListner above and the whole process will restart (it will check if it is again a bad luck click)
 */
 var hadBeenRrefreshed=localStorage.getItem("storeHadBeedRefreshed");
 var theBadLuckClick=localStorage.getItem("storeBadLuckClick");
 console.log(hadBeenRrefreshed);
 console.log(theBadLuckClick);
-if (hadBeenRrefreshed==1){
-    console.log(theBadLuckClick);
-    hadBeenRrefreshed=0;
-    localStorage.setItem("storeHadBeedRefreshed", hadBeenRrefreshed);
-    document.querySelector("."+theBadLuckClick).click();
-}
+    if (hadBeenRrefreshed==1){
+        console.log(theBadLuckClick);
+        hadBeenRrefreshed=0;
+        localStorage.setItem("storeHadBeedRefreshed", hadBeenRrefreshed);
+        document.querySelector("."+theBadLuckClick).click();
+    }
 
 
-        /***** Handle the flag (with the left click) ******/
+/***** Handle the flag (with the left click) ******/
+
+var numberOfFlagAvailable=numMines;
+document.querySelector(".counter").textContent=numberOfFlagAvailable;
+var numberOfFlag;
 
 for (i=0; i<100; i++){
-        document.querySelectorAll("button")[i].addEventListener("contextmenu", function(event){ // left click 
+        document.querySelectorAll(".btnMS")[i].addEventListener("contextmenu", function(event){ // left click 
             event.preventDefault(event); // remove the context menu display
-            if ((this.classList.contains("btn"))==true){ //if the button is still cover and have not being clicked yet (if it still contains the class "btn")
+            if ((this.classList.contains("btn"))==true && youWon!==1 && youLost!==1){ //if the button is still cover and have not being clicked yet (if it still contains the class "btn")
                 this.classList.toggle("btnFlag"); //toogle the class btnFlag
-                if ((this.classList.contains("btnFlag"))==true){ //if the click event contain the class btnFlag it means that there are a flag
+                if ((this.classList.contains("btnFlag"))==true){ //if the click event contain the class btnFlag it means that there is a flag
                     this.disabled=true; // so we disable the click so we can't click on the button when there is a flag
                 }
                 else {
                     this.disabled=false; //if there is no flag we can click on the button
                 }
             }
+            //count the number of Flag on the field;
+            numberOfFlag=0;
+            for (var j=0; j<100; j++){
+                if ((document.querySelectorAll(".btnMS")[j].classList.contains("btnFlag"))==true){
+                    numberOfFlag++;
+                    console.log(numberOfFlag);
+                }
+                numberOfFlagAvailable=numMines-numberOfFlag;
+                console.log(numberOfFlagAvailable);
+                document.querySelector(".counter").textContent=numberOfFlagAvailable;
+            }
+        
         });
 }   
 
+/****** handle the click on the smiley *******/
+
+    document.querySelector(".smileyBtn").addEventListener("click",function(){
+        location.reload();
+    })
 
 
